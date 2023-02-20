@@ -34,7 +34,7 @@ export class Navbarr extends Component {
                 {/* <Nav.Link href="/#about">About</Nav.Link> */}
               </Nav>
               <Nav>
-                <NavDropdown title="Login" id="collasible-nav-dropdown" style={{marginRight:"20px"}}>
+                <NavDropdown title="Login" id="collasible-nav-dropdown" style={{marginRight:"10px", color:"white"}}>
                   <NavDropdown.Item href="/logininvs">
                     Login As Investor
                   </NavDropdown.Item>

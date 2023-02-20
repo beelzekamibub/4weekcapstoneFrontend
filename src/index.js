@@ -17,8 +17,9 @@ import { ForgetPassword } from './Pages/forgetPassword';
 import { Investment } from './Pages/Investment';
 import { AdviserProfile } from './Pages/AdvisorProfile';
 import { AddClient } from './Pages/AddClient';
-
-
+import { Dashboard } from './Pages/dashboard';
+import { EditClientDetails } from './Pages/editClientDetails';
+import { ClientDetails } from './Pages/ClientDetails';
 
 const router = createBrowserRouter([
   {
@@ -64,18 +65,26 @@ const router = createBrowserRouter([
   {
     path: "investment",
     element: <Investment/>,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard/>,
+  },
+  {
+    path: "editDetails/:id",
+    element: <EditClientDetails/>,
+  },
+  {
+    path: "clientDetails",
+    element: <ClientDetails/>,
   }
-  
-  
-  
-
 ]);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

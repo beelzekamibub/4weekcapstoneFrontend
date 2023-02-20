@@ -4,9 +4,11 @@ import React,{Component, useState} from 'react';
 import { useEffect } from 'react';
 import {apiRequest} from './apiRequest'
 import { InvestmentInfo } from './InvestmentInfo';
+import { useParams } from "react-router-dom";
 
 export const Investment = () => {
-    const API_Investment = "http://localhost:8021/InvestmentClient"+"1" ;
+  const params = useParams();
+  const API_Investment = "http://localhost:8021/InvestmentClient" + params.id ;
     console.log(API_Investment)
     const [items,setItems] = useState([]);
     useEffect(() => {

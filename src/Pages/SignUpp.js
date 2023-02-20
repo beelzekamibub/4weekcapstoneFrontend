@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import "../styles/SignUp.css";
 
 function SignUpp() {
-
+  
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");

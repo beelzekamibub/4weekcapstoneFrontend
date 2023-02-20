@@ -1,12 +1,25 @@
-#wholeBody{
-    margin-left: 10px;
-    margin-right: 10px;
+#wholeBody {
+  margin-top: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #BtnAddNewClient {
-  
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
-#clientInfoPara{
-    margin-bottom: 2px;
-    font-weight: 500;
+#clientInfoPara {
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+#table {
+  background-color: rgba(249, 98, 10, 0.404);
+  border-radius: 12px;
+}
+.btnClientName{
+  padding: 0;
+  text-decoration:none;
+  color:black;
+}
+.btnClientName:hover{
+  text-decoration:underline;
+  color:black;
 }

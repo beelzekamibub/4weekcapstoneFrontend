@@ -8,13 +8,10 @@ export const ClientInfo = ({ items, handleDelete }) => {
     <div id="wholeBody">
       <h3>Welcome, AdviserName</h3>
       <p >It's good to see you again</p>
-      <div id="BtnAddNewClient">
-      <Button variant="primary">Add new Client</Button>{" "}
-      <Button variant="secondary">Investment </Button>
-      </div>
+      <p id="clientInfoPara">List of Clients</p>
       
-      <p id="clientInfoPara">Client Details</p>
-      <Table responsive striped bordered hover >
+      
+      <Table responsive hover id="table" >
         <thead>
           <tr>
             <th>Client ID</th>
@@ -22,8 +19,8 @@ export const ClientInfo = ({ items, handleDelete }) => {
             <th>E-mail</th>
             <th>Phone No.</th>
             <th>New Investment</th> 
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Total Investment</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -33,7 +30,8 @@ export const ClientInfo = ({ items, handleDelete }) => {
                 <label>{item.id}</label>
               </td>
               <td>
-                <label>{item.clientName}</label>
+                <Button href={"/clientDetails/" + item.id} className="btnClientName" variant="link" >{item.clientName}</Button>
+                
               </td>
               <td>
                 <label>{item.mail}</label>
@@ -45,12 +43,7 @@ export const ClientInfo = ({ items, handleDelete }) => {
                 <label>{item.newInves}</label>
               </td>
               <td>
-                <Button variant="link" >Edit</Button>
-              </td>
-              <td>
-                <Button variant="link" onClick={() => handleDelete(item)}>
-                  Delete
-                </Button>
+                <label>{item.newInves}</label>
               </td>
             </tr>
           ))}

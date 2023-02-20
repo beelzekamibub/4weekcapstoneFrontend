@@ -21,7 +21,6 @@ export const Loginadv = () => {
     };
 
     try {
-      console.log("made a fetch call");
       fetch("https://localhost:7061/api/User/AdvisorLogin", {
         method: "POST",
         headers: {
@@ -32,12 +31,18 @@ export const Loginadv = () => {
         },
         body: JSON.stringify(values),
       })
-        .then((res) => {if(res.status===200)alert("User Registered");
-                        console.log(res.body);})
+        .then((res) => {
+          
+          if(res.status==200){
+            window.location='/clientlist';
+            return res.text();
+            }
+            return res.text();
+          
+          })
         .then((data) => {
-          if(data === "Undefined")alert(data)
-          console.log(data);
-          window.location='/dashboardadv'
+          
+          localStorage.setItem("JWT-Token", JSON.stringify(data));
         });
     } catch (error) {
       console.log("Error-> ", error);

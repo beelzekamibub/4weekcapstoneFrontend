@@ -4,10 +4,7 @@
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    
-
-  
-  }
+}
 .signInForm {
   display: flex;
   flex-direction: column;
@@ -20,6 +17,8 @@
   box-shadow: 5px 10px 18px #929090; /*right down intensity  */
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: 500px;
+  margin-right: 500px;
 }
 .signInHeader,
 .signInText {
