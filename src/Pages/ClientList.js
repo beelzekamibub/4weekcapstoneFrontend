@@ -28,8 +28,7 @@ export const ClientList = () => {
         .then(res => res.json())
         .then((data) => {
           setClientsList(data);
-          console.log(data);
-          console.log(data[0]);
+
         })
     } catch (error) {
       console.log("Error-> ", error);

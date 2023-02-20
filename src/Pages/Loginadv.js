@@ -4,7 +4,7 @@ import { Navbarr } from "../Components/navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/Logininvs.css";
-
+import {Dashboardadv} from "./Dashboardadv"
 
 export const Loginadv = () => {
   const [email, setEmail] = useState("");
@@ -34,14 +34,13 @@ export const Loginadv = () => {
         .then((res) => {
           
           if(res.status==200){
-            window.location='/clientlist';
+            window.location='/dashboardadv';
             return res.text();
             }
             return res.text();
           
           })
         .then((data) => {
-          
           localStorage.setItem("JWT-Token", JSON.stringify(data));
         });
     } catch (error) {
@@ -52,6 +51,7 @@ export const Loginadv = () => {
   return (
     <>
       <Navbarr />
+      <center>
       <div className="wholeLoginadvPage">
         <Form className="signInForm" id="signInForm">
           <center>
@@ -86,6 +86,7 @@ export const Loginadv = () => {
           </Button>
         </Form>
       </div>
+      </center>
       <Footer />
     </>
   );

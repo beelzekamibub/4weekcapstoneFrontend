@@ -63,7 +63,7 @@ const router = createBrowserRouter([
     element: <AddClient/>,
   },
   {
-    path: "investment",
+    path: "investment/:id",
     element: <Investment/>,
   },
   {
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+     <RouterProvider router={router} />
   </React.StrictMode>
 );
 

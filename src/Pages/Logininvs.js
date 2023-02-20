@@ -48,6 +48,7 @@ export const Logininvs = () => {
   return (
     <>
       <Navbarr />
+      <center>
       <div className="wholeLoginadvPage">
         <Form className="signInForm" id="signInForm">
           <center>
@@ -80,6 +81,7 @@ export const Logininvs = () => {
           </Button>
         </Form>
       </div>
+      </center>
       <Footer />
     </>
   );

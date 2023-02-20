@@ -34,14 +34,13 @@ function SignUpp() {
       "city": city,
       "state": state,
       "password": password,
-      "confirmPassword": confirmPassword,
+      "confirmPassword": confirmPassword
     };
 
-
-
     try {
+      
       console.log("made a fetch call");
-      fetch("https://localhost:7061/api/Auth/Register", {
+      fetch("https://localhost:7061/api/User/AdvisorRegister", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -50,8 +49,11 @@ function SignUpp() {
           "Access-Control-Max-Age": 86400,
         },
         body: JSON.stringify(values),
-      })
-        .then((res) => {if(res.status===200)alert("User Registered")})
+      }
+      )
+        .then((res) => {
+          
+          if(res.status===200)alert("User Registered")})
         .then((data) => {
           if(data === "Undefined")alert("some error occured")
           console.log(data);

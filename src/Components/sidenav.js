@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import "../styles/sidenav.css";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -6,39 +7,39 @@ import {
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
-} from "cdbreact";
-import { NavLink } from "react-router-dom";
+} from 'cdbreact';
+import { NavLink } from 'react-router-dom';
+import logosmall from '../Images/logosmall.png';
 
 export const Sidenav = () => {
 
+  const mystyle = {
+    height:"40px",
+    marginRight:"20px",
+  };
+
   const signout = () => {
-    localStorage.setItem("tokena", "");
+    localStorage.setItem("JWT-Token", "");
     window.location = '/';
   }
 
   return (
-    <div
-      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
-    >
-      <CDBSidebar textColor="#fff" backgroundColor="#333">
+    <div className='navv' style={{}}>
+    <CDBSidebar textColor="#fff" backgroundColor="#333" position="fix">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a
-            className="text-decoration-none"
-            style={{ color: "inherit" }}
-          >
-            Home
+        <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
+          <img style={mystyle}
+            src={logosmall}/>
           </a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/clientlist" activeClassName="activeClicked">
+            <NavLink exact to="/dashboardadv" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="table">Client List</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/addclient" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="plus">
-                Add New Client
-              </CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon="plus">Add New Client</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/profileadv" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>

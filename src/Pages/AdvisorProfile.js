@@ -14,9 +14,22 @@ export const AdviserProfile = () => {
     const [adbisorId,setadbisorId]=useState("");
 
     var ntokenn = "";
-  useEffect(() => {
-
+    useEffect(() => {
+      
+      setaddress("");
+          setcity("");
+          setfirstName("");
+          setlastname("");
+          setemail("");
+          setphone("");
+          setcompany("");
+          setstate("");
+          setadbisorId("");
     let token = localStorage.getItem("JWT-Token");
+      if(token==""){
+        alert("not authorized");
+      }
+    
     let ntoken = "Bearer " + token.replaceAll('"', '');
     ntokenn = ntoken;
 

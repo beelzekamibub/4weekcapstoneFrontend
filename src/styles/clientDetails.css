@@ -7,3 +7,15 @@
     margin: 2%;
     width: 92%;
 }
+.personalDetails{
+    background-color: rgba(249, 98, 10, 0.404);
+}
+#btnEdit{
+    background-color: rgb(229, 75, 19);
+    border-color: orangered;
+    color: black;
+}
+#table {
+    background-color: rgba(249, 98, 10, 0.404);
+    border-radius: 12px;
+  }

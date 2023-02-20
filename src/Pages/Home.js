@@ -9,7 +9,6 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { BiSupport, BiSync } from "react-icons/bi";
 import { AiOutlineToTop } from "react-icons/ai";
-
 import { Container, Row, Col } from "react-bootstrap";
 
 function Home(){
@@ -26,7 +25,6 @@ function Home(){
     };
 
     try {
-      console.log("made a fetch call");
       fetch("https://localhost:7061/api/User/AdvisorLogin", {
         method: "POST",
         headers: {
@@ -37,12 +35,17 @@ function Home(){
         },
         body: JSON.stringify(values),
       })
-        .then((res) => {if(res.status===200)alert("User Registered");
-                        console.log(res.body);})
+        .then((res) => {
+          
+          if(res.status==200){
+            window.location='/dashboardadv';
+            return res.text();
+            }
+            return res.text();
+          
+          })
         .then((data) => {
-          if(data === "Undefined")alert(data)
-          console.log(data);
-          window.location='/dashboardadv'
+          localStorage.setItem("JWT-Token", JSON.stringify(data));
         });
     } catch (error) {
       console.log("Error-> ", error);
