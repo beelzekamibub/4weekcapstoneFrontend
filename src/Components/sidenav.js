@@ -12,7 +12,6 @@ import { NavLink } from 'react-router-dom';
 import logosmall from '../Images/logosmall.png';
 
 export const Sidenav = () => {
-
   const mystyle = {
     height:"40px",
     marginRight:"20px",
@@ -24,10 +23,10 @@ export const Sidenav = () => {
   }
 
   return (
-    <div className='navv' style={{}}>
+    <div style={{ position: 'sticky', top: '0' }}>
     <CDBSidebar textColor="#fff" backgroundColor="#333" position="fix">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-        <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
+        <a href="/dashboardadv" className="text-decoration-none" style={{ color: 'inherit' }}>
           <img style={mystyle}
             src={logosmall}/>
           </a>
@@ -47,7 +46,9 @@ export const Sidenav = () => {
           </CDBSidebarMenu>
         </CDBSidebarContent>
         <CDBSidebarFooter style={{ textAlign: "center" }}>
-          <button onClick={signout} style={{ padding: "20px 5px" }}>Sign Out</button>
+        <button onClick={signout} style={{ textAlign: "center", backgroundColor:"#ff381a"}}> 
+          <CDBSidebarMenuItem icon="power-off"></CDBSidebarMenuItem>
+        </button>
         </CDBSidebarFooter>
       </CDBSidebar>
     </div>

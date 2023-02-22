@@ -78,9 +78,10 @@ export const AddClient = () => {
     }
   };
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
       <Sidenav />
-      <div className = {"everything"} style={{ flex: 1, padding: '20px' }}>
+      <div className = {"everything"} style={{  flex: 1, padding: '20px', overflowY: 'scroll' }}>
+      
         <Form className="signUpForm" id="signUpForm">
           <center>
             <img
@@ -197,21 +198,9 @@ export const AddClient = () => {
           </Row>
 
           <Button onClick={Register} type="submit">
-            Sign Up
+            Register client
           </Button>
 
-          <div id="clickHereButtonId">
-            <p className="clickHereClass">Already have an account</p>
-            <Button
-              variant="link"
-              size="sm"
-              className="clickHereclass"
-              id="clickHereId"
-              href="/Loginadv"
-            >
-              Sign In
-            </Button>
-          </div>
         </Form>
       </div>
     </div>

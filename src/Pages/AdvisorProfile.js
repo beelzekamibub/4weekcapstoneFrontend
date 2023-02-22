@@ -1,7 +1,9 @@
 import React from "react";
+import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import { Container, Row, Col } from "react-bootstrap";
 import { Sidenav } from "../Components/sidenav";
 import { useState,useEffect } from "react";
+
 export const AdviserProfile = () => {
     const [firstname,setfirstName]=useState("");
     const [lastname,setlastname]=useState("");
@@ -55,7 +57,7 @@ export const AdviserProfile = () => {
           setphone(data.phone);
           setcompany(data.company);
           setstate(data.state);
-          setadbisorId(data.adbisorId);
+          setadbisorId(data.advisorID);
         })
     } catch (error) {
       console.log("Error-> ", error);
@@ -69,47 +71,71 @@ export const AdviserProfile = () => {
 
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+<>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
       <Sidenav />
-      <div style={{ flex: 1, padding: "20px" }}>
-        <div>
-          <Container>
-            <Row>
-              <Col>
-                <h1>Profile</h1>
-                <hr />
-                <p>
-                  <strong>First Name:</strong> {firstname}
-                </p>
-                <p>
-                  <strong>Last Name:</strong> {lastname}
-                </p>
-                <p>
-                  <strong>E-mail:</strong> {email}
-                </p>
-                <p>
-                  <strong>Phone Number:</strong> {phone}
-                </p>
-                <p>
-                  <strong>Company:</strong> {company}
-                </p>
-                <p>
-                  <strong>Address:</strong> {address}
-                </p>
-                <p>
-                  <strong>City:</strong> {city}
-                </p>
-                <p>
-                  <strong>State:</strong> {state}
-                </p>
-                <p>
-                  <strong>Advisor Id:</strong> {adbisorId}
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </div>
+      <div style={{ flex: 1, padding: '20px', overflowY: 'scroll' }}>
+          
+    <section className='100vh' style={{ backgroundColor: '#F9620A67' }}>
+      <MDBContainer className="py-5 h-100">
+        <MDBRow className="justify-content-center align-items-center h-100">
+          <MDBCol lg="10" className="mb-4 mb-lg-0">
+            <MDBCard className="mb-3" style={{ borderRadius: '.5rem' }}>
+              <MDBRow className="g-0">
+                <MDBCol md="4" className="gradient-custom text-center text-black"
+                  style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
+                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                    alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
+                  <MDBTypography tag="h5">{firstname} {lastname}</MDBTypography>
+                  <MDBCardText>Advisor</MDBCardText>
+                  <MDBIcon far icon="edit mb-5" />
+                </MDBCol>
+                <MDBCol md="8">
+                  <MDBCardBody className="p-4">
+                    <MDBTypography tag="h6">Advisor Id </MDBTypography>
+                    <MDBCardText className="text-muted">{adbisorId}</MDBCardText>
+                    <hr className="mt-0 mb-4" />
+                    <MDBRow className="pt-1">
+                      <MDBCol size="6" className="mb-3">
+                        <MDBTypography tag="h6">Email</MDBTypography>
+                        <MDBCardText className="text-muted">{email}</MDBCardText>
+                      </MDBCol>
+                      <MDBCol size="6" className="mb-3">
+                        <MDBTypography tag="h6">Phone</MDBTypography>
+                        <MDBCardText className="text-muted">{phone}</MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <MDBRow className="pt-1">
+                      <MDBCol size="6" className="mb-3">
+                        <MDBTypography tag="h6">Company</MDBTypography>
+                      <MDBCardText className="text-muted">{company}</MDBCardText>
+                      </MDBCol>
+                      <MDBCol size="6" className="mb-3">
+                        <MDBTypography tag="h6">Address</MDBTypography>
+                        <MDBCardText className="text-muted">{address}</MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                    <MDBRow className="pt-1">
+                      <MDBCol size="6" className="mb-3">
+                        <MDBTypography tag="h6">City</MDBTypography>
+                        <MDBCardText className="text-muted">{city}</MDBCardText>
+                      </MDBCol>
+                      <MDBCol size="6" className="mb-3">
+                        <MDBTypography tag="h6">State</MDBTypography>
+                        <MDBCardText className="text-muted">{state}</MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBCardBody>
+                </MDBCol>
+              </MDBRow>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </section>
     </div>
+    </div>
+
+    </>
   );
 };

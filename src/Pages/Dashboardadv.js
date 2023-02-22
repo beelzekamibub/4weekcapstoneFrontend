@@ -1,11 +1,7 @@
 import Button from 'react-bootstrap/Button'
-import { Sidenav } from '../Components/sidenav'
-import { Navbarr } from "../Components/navbar";
-import { Footer } from "../Components/footer";
 import { ClientInfo } from "./ClientInfo";
 import { useEffect, useState } from "react";
 import "../styles/Dashboardadv.css";
-import { apiRequest } from "./apiRequest";
 
 
 export function Dashboardadv() {
@@ -45,10 +41,17 @@ export function Dashboardadv() {
   const cli = clientsList.map((e,ind) =>{
     return (
       <tr key={ind}>
-        <td>{e.clientID}</td>
-        <td>{e.firstName}</td>
-        <td>{e.lastName}</td>
+        <td>
+        <label>{e.clientID}</label>
+        </td>
+        <td>
+        <Button href={"/clientDetails/" + e.userId}  className="btnClientName" variant="link" >{e.firstName}</Button>
+        </td>
+        <td>
+        <Button href={"/clientDetails/"+ e.userId} className="btnClientName" variant="link" >{e.lastName}</Button>
+        </td>
         <td>{e.email}</td>
+        <td>{e.phone}</td>
       </tr>
     )
   })

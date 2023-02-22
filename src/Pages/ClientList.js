@@ -49,9 +49,9 @@ export const ClientList = () => {
 
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      <Sidenav />
-      <div style={{ flex: 1, padding: '20px' }}>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+       <Sidenav />
+      <div style={{ flex: 1, padding: '20px', overflowY: 'scroll' }}>
         <h3>Client List</h3>
 
         <Table striped bordered hover>

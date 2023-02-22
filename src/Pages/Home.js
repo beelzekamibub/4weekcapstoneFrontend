@@ -126,7 +126,7 @@ function Home(){
         <Container>
           <Row>
             <Col xs={12} md={4}>
-              <Card style={{ backgroundColor: "lightgrey" }}>
+              <Card style={{ backgroundColor: "#F9620A67" }}>
                 <Card.Img
                   className="mx-auto d-block"
                   variant="top"
@@ -156,7 +156,7 @@ function Home(){
               </Card>
             </Col>
             <Col xs={12} md={4}>
-              <Card style={{ backgroundColor: "lightgrey" }}>
+              <Card style={{ backgroundColor: "#F9620A67" }}>
                 <Card.Img
                   className="mx-auto d-block"
                   variant="top"
@@ -187,7 +187,7 @@ function Home(){
             </Col>
             <Col xs={12} md={4}>
               <Card
-                style={{ backgroundColor: "lightgrey", marginBottom: "6%" }}
+                style={{ backgroundColor: "#F9620A67", marginBottom: "6%" }}
               >
                 <Card.Img
                   className="mx-auto d-block"

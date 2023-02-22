@@ -11,9 +11,9 @@ export const ClientInfo = ({ clientlist }) => {
 
   
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
+    <div style={{display: 'flex', height: '100vh', overflow: 'hidden' }}>
       <Sidenav />
-      <div id = "wholeBody" style={{ flex: 1, padding: '20px' }}>
+      <div id = "wholeBody" style={{  flex: 1, padding: '20px', overflowY: 'scroll'  }}>
       <h3>Welcome, AdviserName</h3>
       <p >It's good to see you again</p>
       <p id="clientInfoPara">List of Clients</p>

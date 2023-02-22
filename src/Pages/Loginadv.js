@@ -52,8 +52,8 @@ export const Loginadv = () => {
     <>
       <Navbarr />
       <center>
-      <div className="wholeLoginadvPage">
-        <Form className="signInForm" id="signInForm">
+      <div className="wholeLoginadvPage" style={{marginTop:"6%"}}>
+        <Form className="signInForm" id="signInForm" >
           <center>
             <img
               className="logo"

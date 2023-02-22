@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     element: <EditClientDetails/>,
   },
   {
-    path: "clientDetails",
+    path: "clientDetails/:userID",
     element: <ClientDetails/>,
   }
 ]);

@@ -49,7 +49,7 @@ export const Logininvs = () => {
     <>
       <Navbarr />
       <center>
-      <div className="wholeLoginadvPage">
+      <div className="wholeLoginadvPage" style={{marginTop:"6%"}}>
         <Form className="signInForm" id="signInForm">
           <center>
             <img
