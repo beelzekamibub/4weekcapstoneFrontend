@@ -41,14 +41,14 @@ export const ClientDetails = () => {
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-       <Sidenav />
+      <Sidenav />
       <div style={{ flex: 1, padding: '20px', overflowY: 'scroll' }}>
         <h1 className="clientname">Client Personal Details</h1>
         <div
           className="personalDetails"
           style={{ border: "1px solid black", margin: "1%" }}
         >
-          {/* <h5 className="detailsclient">First Name       :          {clientDetails[0].firstName} </h5>
+          <h5 className="detailsclient">First Name       :          {clientDetails[0].firstName} </h5>
           <h5 className="detailsclient">Last Name        :          {clientDetails[0].lastName}</h5>
           <h5 className="detailsclient">Client ID        :          {clientDetails[0].clientID}</h5>
           <h5 className="detailsclient">Email            :          {clientDetails[0].email}</h5>
@@ -57,7 +57,7 @@ export const ClientDetails = () => {
           <h5 className="detailsclient">Address          :          {clientDetails[0].address}</h5>
           <h5 className="detailsclient">City             :          {clientDetails[0].city}</h5>
           <h5 className="detailsclient">State            :          {clientDetails[0].state}</h5>
-          <h5 className="detailsclient">Total Investment : </h5> */}
+          <h5 className="detailsclient">Total Investment : </h5>
           <Button id="btnEdit" style={{ margin: "2%" }} variant="primary">
             Edit profile
           </Button>
