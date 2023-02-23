@@ -9,10 +9,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
+  
   padding: 20px 20px;
   background: white;
 }
+
 .signUpHeader,
 .signUpText {
   text-align: center;
@@ -23,9 +24,36 @@
   margin-bottom: 20px;
 }
 #clickHereButtonId {
-  padding-top: 115px;
+  padding-top: 2%;
 }
-.clickHereClass {
-  float: left;
-  position: relative;
+.logoimg{
+  height: 10%;
+  width: 10%;
+}
+
+/* Styles for small screens */
+@media only screen and (max-width: 502px) {
+  /* CSS styles here */
+  .signUpForm{
+    width: 97%;
+  }
+  .everything{
+    padding-top: 5%;
+  }
+}
+
+/* Styles for medium screens */
+@media only screen and (min-width: 503px) and (max-width: 661px) {
+  /* CSS styles here */
+  .signUpForm{
+    width: 70%;
+  }
+}
+
+/* Styles for large screens */
+@media only screen and (min-width: 1200px) {
+  /* CSS styles here */
+  .signUpForm{
+    width: 37%;
+  }
 }

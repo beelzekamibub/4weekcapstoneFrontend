@@ -6,10 +6,10 @@
   margin-left: 20%;
 }
 
-.logo{
+/* .logo{
   height: 10%;
   width: 10%; 
-}
+} */
 
 .containerhome{
   margin-top: 60px;
@@ -29,22 +29,23 @@
   font-size: 2rem;
   font-weight: 100;
   font-style:italic ;
-  color:blue; 
+  color:#f58142; 
  
 }
 .signInForm{
 width: 100%;
 }
 .cardhome{
+  
   width: 100%;
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 1rem;
   margin-top: 4rem;
 }
 .logo{
-  margin-top: 0%;
-  height: 81px;
-  width:90px;
+  
+  height: 40%;
+  width:60%;
 }
 .lefthome{
   margin-top: 40%;

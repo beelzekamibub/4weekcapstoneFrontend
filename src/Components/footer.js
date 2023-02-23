@@ -65,17 +65,7 @@ export const Footer = () => {
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
                 <a href='/' className='text-reset'>
-                  Home
-                </a>
-              </p>
-              <p>
-                <a href='/logininvs' className='text-reset'>
-                Login As Invester
-                </a>
-              </p>
-              <p>
-                <a href='/loginadv' className='text-reset'>
-                Login As Advisor
+                  About Us
                 </a>
               </p>
               <p>
@@ -83,6 +73,12 @@ export const Footer = () => {
                   SignUp
                 </a>
               </p>
+              <p>
+                <a href='/loginadv' className='text-reset'>
+                Login As Advisor
+                </a>
+              </p>
+              
             </MDBCol>
 
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
@@ -96,10 +92,10 @@ export const Footer = () => {
                 info@example.com
               </p>
               <p>
-                <MDBIcon icon="phone" className="me-3" /> + 91 934 567 88
+                <MDBIcon icon="phone" className="me-3" /> +91 0123456789
               </p>
               <p>
-                <MDBIcon icon="print" className="me-3" /> + 91 834 567 89
+                <MDBIcon icon="print" className="me-3" /> + 91 9876543210
               </p>
             </MDBCol>
           </MDBRow>

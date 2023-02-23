@@ -6,6 +6,8 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { Footer } from "../Components/footer";
 import { useEffect } from "react";
+import { MDBIcon } from 'mdb-react-ui-kit';
+import "../styles/addclient.css";
 
 export const AddClient = () => {
 
@@ -36,23 +38,26 @@ export const AddClient = () => {
 
 
   const Register = (e) => {
+    alert(localStorage.getItem("advid"));
     e.preventDefault();
-    let values = {
+    let values={
       firstName: firstname,
       lastName: lastname,
+      roleID: 2,
       email: email,
+      advisorID: localStorage.getItem("advid"),
       phone: phone,
       company: company,
       address: address,
       city: city,
       state: state,
       password: password,
-      confirmPassword: confirmPassword,
+      confirmPassword: confirmPassword
     };
     alert(JSON.stringify(values));
     try {
       alert(ntokenn);
-      fetch("https://localhost:7061/api/User/ClientRegister", {
+      fetch("https://localhost:7061/api/User/Registration", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -71,135 +76,153 @@ export const AddClient = () => {
           alert(data);
           if (data === "Undefined") alert("some error occured");
           console.log(data);
-          window.location = "/dashboardadv";
+          window.location = "/clientlist";
         });
     } catch (error) {
       console.log("Error-> ", error);
     }
   };
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' ,backgroundColor:"#FAFAFD"}}>
       <Sidenav />
-      <div className = {"everything"} style={{  flex: 1, padding: '20px', overflowY: 'scroll' }}>
+      <div className = {"everything"} style={{  flex: 1, padding: '20px',overflowY:"scroll"}}>
       
-        <Form className="signUpForm" id="signUpForm">
+        <Form style={{borderRadius:"20px",boxShadow:"6px 6px 4px rgba(0, 0, 0, 0.2)"}} className="signUpForm" id="signUpForm">
           <center>
             <img
-              className="logo"
+            style={{width:"16%",height:"41%"}}
+              className="logoimg"
               src={require("../Images/logo.png")}
               alt="logo"
             />
+           <span style={{fontWeight:"700",fontSize:"120%"}}> Add Client</span>
+           
+           <p>Enter details of new<b> Client</b> here</p>
+           <hr></hr>
           </center>
-          <h3 className="signUpHeader">Add Client</h3>
-          <p className="signUpText">
-            Enter deatails of <b>Client</b>
-          </p>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>First Name</Form.Label>
+          <Row>
+            <Col>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+            
             <Form.Control
               value={firstname}
               onChange={(e) => setFirstname(e.target.value)}
               type="text"
-              placeholder="Enter your name"
+              placeholder="First name"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Last Name</Form.Label>
+            </Col>
+            <Col>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+            
             <Form.Control
               value={lastname}
               onChange={(e) => setLastname(e.target.value)}
               type="text"
-              placeholder="Enter your name"
+              placeholder="Last name"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>E-mail</Form.Label>
+            </Col>
+          </Row>
+         
+          <Row>
+            <Col>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            
             <Form.Control
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
-              placeholder="Enter your email"
+              placeholder="Email"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Phone Number</Form.Label>
+            </Col>
+            <Col>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+            
             <Form.Control
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               type="phone"
-              placeholder="Enter your phone number"
+              placeholder="Phone"
             />
           </Form.Group>
+            </Col>
+          </Row>
+          
+         
 
-          <Row className="mb-3">
+          <Row >
             <Form.Group as={Col} md controlId="formGridEmail" className="mb-3">
-              <Form.Label>Company</Form.Label>
+              
               <Form.Control
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 type="text"
-                placeholder="Enter the name of the company"
+                placeholder="Company name"
               />
             </Form.Group>
 
             <Form.Group as={Col} md controlId="formGridPassword">
-              <Form.Label>Address</Form.Label>
+              
               <Form.Control
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 type="text"
-                placeholder="Enter full address"
+                placeholder="Full address"
               />
             </Form.Group>
           </Row>
 
-          <Row className="mb-3">
+          <Row >
             <Form.Group as={Col} md controlId="formGridPassword">
-              <Form.Label>City</Form.Label>
+             
               <Form.Control
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 type="text"
-                placeholder="Enter the name of your city"
+                placeholder="City"
               />
             </Form.Group>
 
             <Form.Group as={Col} md controlId="formGridEmail" className="mb-3">
-              <Form.Label>State</Form.Label>
+              
               <Form.Control
                 value={state}
                 onChange={(e) => setState(e.target.value)}
                 type="text"
-                placeholder="Enter the name of the state"
+                placeholder="State"
               />
             </Form.Group>
           </Row>
 
           <Row className="mb-3">
             <Form.Group as={Col} md controlId="formGridEmail" className="mb-3">
-              <Form.Label>Password</Form.Label>
+              
               <Form.Control
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                placeholder="Enter a strong password"
+                placeholder="Set a password"
               />
             </Form.Group>
 
             <Form.Group as={Col} md controlId="formGridPassword">
-              <Form.Label>Confirm Password</Form.Label>
+              {/* <Form.Label>Confirm Password</Form.Label> */}
               <Form.Control
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
-                placeholder="Confirm your password"
+                placeholder="Confirm password"
               />
             </Form.Group>
           </Row>
-
-          <Button onClick={Register} type="submit">
-            Register client
-          </Button>
+<center>
+<Button  style={{fontFamily:"Arial",borderRadius:"14px",borderTop:"10%"}} onClick={Register} type="submit">
+            Register Client
+          </Button >
+</center>
+          
 
         </Form>
       </div>

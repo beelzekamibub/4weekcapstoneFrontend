@@ -3,6 +3,8 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import { Container, Row, Col } from "react-bootstrap";
 import { Sidenav } from "../Components/sidenav";
 import { useState,useEffect } from "react";
+import picprofile from "../Images/picprofile.png"
+import "../styles/advprofile.css";
 
 export const AdviserProfile = () => {
     const [firstname,setfirstName]=useState("");
@@ -18,7 +20,7 @@ export const AdviserProfile = () => {
     var ntokenn = "";
     useEffect(() => {
       
-      setaddress("");
+          setaddress("");
           setcity("");
           setfirstName("");
           setlastname("");
@@ -72,31 +74,41 @@ export const AdviserProfile = () => {
 
   return (
 <>
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden',backgroundColor:"#FAFAFD" }}>
       <Sidenav />
       <div style={{ flex: 1, padding: '20px', overflowY: 'scroll' }}>
-          
-    <section className='100vh' style={{ backgroundColor: '#F9620A67' }}>
-      <MDBContainer className="py-5 h-100">
-        <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol lg="10" className="mb-4 mb-lg-0">
-            <MDBCard className="mb-3" style={{ borderRadius: '.5rem' }}>
+      <div  style={{display:"flex",justifyContent:"flex-end",marginTop:"2px",marginBottom:"6px",cursor:"pointer"}}>
+      <span className="signout" style={{marginRight:"2%",fontWeight:"700",backgroundColor:"#212529",color:"white",padding:"1%",borderRadius:"14px"}}>
+      <center>
+      <span style={{marginRight:"10%"}}>Sign Out</span>
+      <MDBIcon style={{marginLeft:"1%"}}icon="power-off" size="1.5x"/>
+      </center>
+    
+      </span>
+        
+      </div>
+    <section className='100vh' >
+      <MDBContainer className="py-5 h-100"  >
+        <MDBRow className="justify-content-center align-items-center h-100" >
+          <MDBCol lg="10" className="mb-4 mb-lg-0" style={{border:"none"}}>
+            <MDBCard className="mb-3" style={{ borderRadius: '40px' }}>
               <MDBRow className="g-0">
                 <MDBCol md="4" className="gradient-custom text-center text-black"
-                  style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                    alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
+                  >
+                  <div style={{marginTop:"20%"}}><MDBCardImage src={picprofile}
+                    alt="Avatar" style={{ width: '50%',backgroundColor:"#F58142" }} fluid />
                   <MDBTypography tag="h5">{firstname} {lastname}</MDBTypography>
-                  <MDBCardText>Advisor</MDBCardText>
-                  <MDBIcon far icon="edit mb-5" />
+                  <MDBCardText ><h2 style={{marginBottom:"15%"}} >Advisor</h2></MDBCardText></div>
+                  
+                  <MDBIcon style={{backgroundColor:"#ffffff",borderRadius:"20px"}}far icon="edit mb-5" />
                 </MDBCol>
-                <MDBCol md="8">
+                <MDBCol md="8" >
                   <MDBCardBody className="p-4">
-                    <MDBTypography tag="h6">Advisor Id </MDBTypography>
+                    <MDBTypography tag="h6"><h3>Advisor Id</h3> </MDBTypography>
                     <MDBCardText className="text-muted">{adbisorId}</MDBCardText>
                     <hr className="mt-0 mb-4" />
                     <MDBRow className="pt-1">
-                      <MDBCol size="6" className="mb-3">
+                      <MDBCol size="6" className="mb-3" style={{backgroundColor:"#ffffff"}}>
                         <MDBTypography tag="h6">Email</MDBTypography>
                         <MDBCardText className="text-muted">{email}</MDBCardText>
                       </MDBCol>
@@ -131,6 +143,9 @@ export const AdviserProfile = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
+        {/* <MDBRow>
+          
+        </MDBRow> */}
       </MDBContainer>
     </section>
     </div>

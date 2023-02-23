@@ -6,6 +6,10 @@
   width: 33%;
     
   }
+  .logoimg{
+    height: 10%;
+    width: 10%;
+  }
 .signInForm {
   display: flex;
   flex-direction: column;
@@ -32,8 +36,8 @@
 }
 #abc {
   padding: 0px 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 0px;
+  padding-bottom: 3%;
   font-size: 15px;
   border-radius: 10px;
   width: fit-content;

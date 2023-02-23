@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
 
 import "../styles/SignUp.css";
 
@@ -46,22 +47,39 @@ function SignUpp() {
       setValidated(true);
 
 
-    let values = {
-      "firstName": firstname,
-      "lastName": lastname,
-      "email": email,
-      "phone": phone,
-      "company": company,
-      "address": address,
-      "city": city,
-      "state": state,
-      "password": password,
-      "confirmPassword": confirmPassword
+    // let values = {
+    //   firstName: firstname,
+    //   lastName: lastname,
+    //   roleID:1,
+    //   email: email,
+    //   phone: phone,
+    //   company: company,
+    //   address: address,
+    //   city: city,
+    //   state: state,
+    //   password: password,
+    //   confirmPassword: confirmPassword
+    // };
+    let values={
+      "firstName": "string",
+      "lastName": "string",
+      "roleID": 1,
+      "email": "user123467@example.com",
+      "advisorID": "",
+      "phone": "1234567890",
+      "company": "string",
+      "address": "string",
+      "city": "string",
+      "state": "string",
+      "password": "string",
+      "confirmPassword": "string"
     };
 
     try {
+      console.log(values);
+      alert(values);
       console.log("made a fetch call");
-      fetch("https://localhost:7061/api/User/AdvisorRegister", {
+      fetch("https://localhost:7061/api/User/Registration", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -73,7 +91,8 @@ function SignUpp() {
       }
       ).then((res) => {
           if(res.status===200){alert("User Registered");window.location='/Loginadv'}
-          if(res.status!==200){alert("something went wrong");window.location='/SignUpp'}
+
+          if(res.status!==200){alert(res.status);window.location='/SignUpp'}
         })
         .then((data) => {
           if(data === "Undefined"){
@@ -167,8 +186,11 @@ function SignUpp() {
   return (
     <div>
       <Navbarr />
-      <div className="everything" style={{ marginTop: "5%" }}>
-      <Form
+      
+     
+      <div className="everything" style={{ marginTop: "5%" ,alignItems:"center",backgroundColor:"#FAFAFD"}}>
+      
+        <Form style={{borderRadius:"20px",boxShadow:"6px 6px 4px rgba(0, 0, 0, 0.2)"}}
           className="signUpForm"
           id="signUpForm"
           noValidate
@@ -177,40 +199,61 @@ function SignUpp() {
         >
           <center>
             <img
-              className="logo"
+              className="logoimg"
+              style={{width:"10%",height:"10%"}}
               src={require("../Images/logo.png")}
               alt="logo"
             />
+            <span style={{fontWeight:"700",fontSize:"120%"}}> Sign Up</span>
+           
+            <p>Enter details to create your<b> Advisor</b> account</p>
+            <hr></hr>
           </center>
-          <h3 className="signUpHeader">Adviser's SignUp</h3>
-          <p className="signUpText">
-            Enter deatails to create your <b>Adviser</b> account
-          </p>
-          <Form.Group className="mb-3" controlId="formBasicEmail validationCustom01">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
+         
+          
+          
+          
+          <Row>
+            <Col>
+            <Form.Group   className="mb-3" controlId="formBasicEmail validationCustom01">
+            {/* <Form.Label>First Name</Form.Label> */}
+            <Form.Control 
               value={firstname}
               onChange={(e) => setFirstname(e.target.value)}
               type="text"
-              placeholder="Enter your name"
+              placeholder="Your name"
               required
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail validationCustom02">
-            <Form.Label>Last Name</Form.Label>
+            </Col>
+            <Col>
+            <Form.Group className="mb-3" controlId="formBasicEmail validationCustom02">
+            {/* <Form.Label>Last Name</Form.Label> */}
             <Form.Control
               value={lastname}
               onChange={(e) => setLastname(e.target.value)}
               type="text"
-              placeholder="Enter your last name"
+              placeholder="Your last name"
               required
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword validationCustom03">
-            <Form.Label>E-mail</Form.Label>
+            </Col>
+          </Row>
+            
+            
+            
+            
+          
+          
+         
+          <Row>
+            <Col>
+            <Form.Group className="mb-3" controlId="formBasicPassword validationCustom03">
+            {/* <Form.Label>E-mail</Form.Label> */}
             <Form.Control
+            
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -221,33 +264,39 @@ function SignUpp() {
               "Please provide a valid eamil."
             </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail validationCustom04">
-            <Form.Label>Phone Number</Form.Label>
+            </Col>
+            <Col>
+            <Form.Group className="mb-3" controlId="formBasicEmail validationCustom04">
+            {/* <Form.Label>Phone Number</Form.Label> */}
             <Form.Control
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               type="phone"
-              placeholder="Enter your phone number"
+              placeholder="Phone number"
               required
             />
             <Form.Control.Feedback type="invalid">
             Please provide a valid Phone Number.
             </Form.Control.Feedback>
           </Form.Group>
+            </Col>
+          </Row>
+          
+          
 
-          <Row className="mb-3">
+          <Row>
             <Form.Group as={Col} md controlId="formGridEmail validationCustom05" className="mb-3">
-              <Form.Label>Company</Form.Label>
+              {/* <Form.Label>Company</Form.Label> */}
               <Form.Control
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 type="text"
-                placeholder="Enter the name of the company"
+                placeholder="Name of the company"
               />
             </Form.Group>
 
             <Form.Group as={Col} md controlId="formGridPassword validationCustom06">
-              <Form.Label>Address</Form.Label>
+              {/* <Form.Label>Address</Form.Label> */}
               <Form.Control
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -257,31 +306,31 @@ function SignUpp() {
             </Form.Group>
           </Row>
 
-          <Row className="mb-3">
+          <Row>
             <Form.Group as={Col} md controlId="formGridPassword validationCustom07">
-              <Form.Label>City</Form.Label>
+              {/* <Form.Label>City</Form.Label> */}
               <Form.Control
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 type="text"
-                placeholder="Enter the name of your city"
+                placeholder="Name of your city"
               />
             </Form.Group>
 
             <Form.Group as={Col} md controlId="formGridEmail validationCustom08" className="mb-3">
-              <Form.Label>State</Form.Label>
+              {/* <Form.Label>State</Form.Label> */}
               <Form.Control
                 value={state}
                 onChange={(e) => setState(e.target.value)}
                 type="text"
-                placeholder="Enter the name of the state"
+                placeholder="Name of your state"
               />
             </Form.Group>
           </Row>
 
-          <Row className="mb-3">
-            <Form.Group as={Col} md controlId="formGridEmail validationCustom09" className="mb-3">
-              <Form.Label>Password</Form.Label>
+          <Row>
+            <Form.Group as={Col} md controlId="formGridEmail validationCustom09">
+              {/* <Form.Label>Password</Form.Label> */}
               <Form.Control required
                 type="password"
                 
@@ -292,23 +341,23 @@ function SignUpp() {
             </Form.Group>
 
             <Form.Group as={Col} md controlId="formGridPassword validationCustom10">
-              <Form.Label>Confirm Password</Form.Label>
+              {/* <Form.Label>Confirm Password</Form.Label> */}
               <Form.Control
                 required
                 type = "password"
-                value={passwordInput.confirmPassword} onChange={handlePasswordChange} onKeyUp={handleValidation} name="confirmPassword" placeholder="Password" className="form-control"
+                value={passwordInput.confirmPassword} onChange={handlePasswordChange} onKeyUp={handleValidation} name="confirmPassword" placeholder="Re-enter your Password" className="form-control"
                 
               />
               <p className="text-danger">{confirmPasswordError}</p>
             </Form.Group>
           </Row>
-
-          <Button onClick={Register} type="submit">
+<center><Button style={{fontFamily:"Arial",borderRadius:"14px",width:"50%",borderTop:"0px"}} onClick={Register} type="submit">
             Sign Up
           </Button>
-
-          <div id="clickHereButtonId">
-            <p className="clickHereClass">Already have an account</p>
+          </center>
+          
+<div id="clickHereButtonId">
+<p className="clickHereClass">Already have an account?</p>
             <Button
               variant="link"
               size="sm"
@@ -318,11 +367,19 @@ function SignUpp() {
             >
               Sign In
             </Button>
+            
           </div>
+          
+          
         </Form>
+        
+      
       </div>
+      
       <Footer />
-    </div>
+    
+      </div>
+      
   );
 }
 export default SignUpp;

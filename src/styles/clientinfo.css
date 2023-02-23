@@ -1,0 +1,44 @@
+.rounded-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border-radius:20px;
+    box-shadow:6px 6px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+ 
+  .rounded-table td {
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.75rem;
+    vertical-align: top;
+    text-align: center;
+    font-weight: 500;
+  }
+  .rounded-table th{
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.75rem;
+    vertical-align: top;
+    background-color: #F58142;
+    color: black;
+    text-align: center;
+  }
+  
+  .rounded-table thead th {
+    border-top: none;
+    /* border-radius: 10px 10px 0 0; */
+  }
+  
+  .rounded-table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .rounded-table .table-dark {
+    color: inherit;
+  }
+  
+  .rounded-table .table-dark th,
+  .rounded-table .table-dark td,
+  .rounded-table .table-dark thead th {
+    border-color: #dee2e6;
+  }

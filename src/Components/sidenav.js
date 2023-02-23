@@ -26,30 +26,32 @@ export const Sidenav = () => {
     <div style={{ position: 'sticky', top: '0' }}>
     <CDBSidebar textColor="#fff" backgroundColor="#333" position="fix">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-        <a href="/dashboardadv" className="text-decoration-none" style={{ color: 'inherit' }}>
+        <a href="/clientlist" className="text-decoration-none" style={{ color: 'inherit' }}>
           <img style={mystyle}
             src={logosmall}/>
           </a>
+          <span style={{fontSize:"90%"}}>PortfolioPilot</span>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/dashboardadv" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Client List</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/addclient" activeClassName="activeClicked">
-            <CDBSidebarMenuItem icon="plus">Add New Client</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/profileadv" activeClassName="activeClicked">
+          <NavLink exact to="/profileadv" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
             </NavLink>
+            <NavLink exact to="/clientlist" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="table">Client List</CDBSidebarMenuItem>
+            </NavLink>
+            {/* <NavLink exact to="/addclient" activeClassName="activeClicked">
+            <CDBSidebarMenuItem icon="plus">Add New Client</CDBSidebarMenuItem>
+            </NavLink> */}
+            
           </CDBSidebarMenu>
         </CDBSidebarContent>
-        <CDBSidebarFooter style={{ textAlign: "center" }}>
+        {/* <CDBSidebarFooter style={{ textAlign: "center" }}>
         <button onClick={signout} style={{ textAlign: "center", backgroundColor:"#ff381a"}}> 
           <CDBSidebarMenuItem icon="power-off"></CDBSidebarMenuItem>
         </button>
-        </CDBSidebarFooter>
+        </CDBSidebarFooter> */}
       </CDBSidebar>
     </div>
   );
