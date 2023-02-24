@@ -5,6 +5,7 @@ import { Sidenav } from "../Components/sidenav";
 import { useState,useEffect } from "react";
 import picprofile from "../Images/picprofile.png"
 import "../styles/advprofile.css";
+import { Navbar2 } from "../Components/navbar2";
 
 export const AdviserProfile = () => {
     const [firstname,setfirstName]=useState("");
@@ -17,26 +18,15 @@ export const AdviserProfile = () => {
     const [address,setaddress]=useState("");
     const [adbisorId,setadbisorId]=useState("");
 
-    var ntokenn = "";
     useEffect(() => {
-      
-          setaddress("");
-          setcity("");
-          setfirstName("");
-          setlastname("");
-          setemail("");
-          setphone("");
-          setcompany("");
-          setstate("");
-          setadbisorId("");
+
     let token = localStorage.getItem("JWT-Token");
       if(token==""){
         alert("not authorized");
       }
     
     let ntoken = "Bearer " + token.replaceAll('"', '');
-    ntokenn = ntoken;
-
+    
     try {
       console.log("made a get call");
       fetch("https://localhost:7061/api/User/Advisor-Info", {
@@ -74,18 +64,14 @@ export const AdviserProfile = () => {
 
   return (
 <>
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden',backgroundColor:"#FAFAFD" }}>
-      <Sidenav />
-      <div style={{ flex: 1, padding: '20px', overflowY: 'scroll' }}>
+<Navbar2/>
       <div  style={{display:"flex",justifyContent:"flex-end",marginTop:"2px",marginBottom:"6px",cursor:"pointer"}}>
       <span className="signout" style={{marginRight:"2%",fontWeight:"700",backgroundColor:"#212529",color:"white",padding:"1%",borderRadius:"14px"}}>
       <center>
       <span style={{marginRight:"10%"}}>Sign Out</span>
       <MDBIcon style={{marginLeft:"1%"}}icon="power-off" size="1.5x"/>
       </center>
-    
       </span>
-        
       </div>
     <section className='100vh' >
       <MDBContainer className="py-5 h-100"  >
@@ -99,8 +85,6 @@ export const AdviserProfile = () => {
                     alt="Avatar" style={{ width: '50%',backgroundColor:"#F58142" }} fluid />
                   <MDBTypography tag="h5">{firstname} {lastname}</MDBTypography>
                   <MDBCardText ><h2 style={{marginBottom:"15%"}} >Advisor</h2></MDBCardText></div>
-                  
-                  <MDBIcon style={{backgroundColor:"#ffffff",borderRadius:"20px"}}far icon="edit mb-5" />
                 </MDBCol>
                 <MDBCol md="8" >
                   <MDBCardBody className="p-4">
@@ -143,14 +127,8 @@ export const AdviserProfile = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-        {/* <MDBRow>
-          
-        </MDBRow> */}
       </MDBContainer>
     </section>
-    </div>
-    </div>
-
     </>
   );
 };

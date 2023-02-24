@@ -1,9 +1,30 @@
 {
   "AdviserClientList": [
     {
+      "id": 1,
+      "clientName": "Arushi",
+      "mail": "arushi@gmail.com",
+      "phoneNo": "54637",
+      "newInves": "1100"
+    },
+    {
       "id": 2,
       "clientName": "Anjali",
       "mail": "anjali@gmail.com",
+      "phoneNo": "54637",
+      "newInves": "1100"
+    },
+    {
+      "id": 3,
+      "clientName": "Yashi",
+      "mail": "yashi@gmail.com",
+      "phoneNo": "54637",
+      "newInves": "1100"
+    },
+    {
+      "id": 4,
+      "clientName": "Nidhi",
+      "mail": "nidhi@gmail.com",
       "phoneNo": "54637",
       "newInves": "1100"
     }

@@ -26,7 +26,7 @@ export const Sidenav = () => {
     <div style={{ position: 'sticky', top: '0' }}>
     <CDBSidebar textColor="#fff" backgroundColor="#333" position="fix">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-        <a href="/clientlist" className="text-decoration-none" style={{ color: 'inherit' }}>
+        <a href="/dashboardadv" className="text-decoration-none" style={{ color: 'inherit' }}>
           <img style={mystyle}
             src={logosmall}/>
           </a>

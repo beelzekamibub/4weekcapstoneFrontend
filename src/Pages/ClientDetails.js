@@ -1,23 +1,35 @@
-import { Table } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import {Table} from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { Sidenav } from "../Components/sidenav";
 import "../styles/clientDetails.css";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import React from "react";
+import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
+import picprofile from "../Images/picprofile.png"
+import "../styles/advprofile.css";
+import { Navbar2 } from "../Components/navbar2";
 
 export const ClientDetails = () => {
-  const { userID } = useParams();
-  //alert(userID);
-  const [Details, setDetails] = useState([]);
-  const [liist, setlist] = useState([]);
+  let { EcliID } = useParams();
+  const [firstname, setfirstName] = useState("");
+  const [lastname, setlastname] = useState("");
+  const [email, setemail] = useState("");
+  const [phone, setphone] = useState("");
+  const [company, setcompany] = useState("");
+  const [city, setcity] = useState("");
+  const [state, setstate] = useState("");
+  const [address, setaddress] = useState("");
+  const [adbisorId, setadbisorId] = useState("");
+
   useEffect(() => {
-    let token = "Bearer " + localStorage.getItem("JWT-Token").replaceAll('"', '');
-    if(token=="Bearer "){
+    let token = localStorage.getItem("JWT-Token");
+    if (token == "") {
       alert("not authorized");
+      window.location = '/loginadv'
     }
-    
+    token = "Bearer " + token.replaceAll('"', '');
+
     try {
-      fetch("https://localhost:7061/api/User/Get-All-Clients-for-an-advisor", {
+      fetch(`https://localhost:7061/api/User/client-Info?id=${EcliID}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json',
@@ -29,42 +41,92 @@ export const ClientDetails = () => {
       })
         .then(res => res.json())
         .then((data) => {
-          setlist(data);
+          setaddress(data.address);
+          setcity(data.city);
+          setfirstName(data.firstName);
+          setlastname(data.lastName);
+          setemail(data.email);
+          setphone(data.phone);
+          setcompany(data.company);
+          setstate(data.state);
+          setadbisorId(data.advisorID);
         })
     } catch (error) {
       console.log("Error-> ", error);
     }
-    console.log(liist);
-    setDetails(liist.filter((e,i)=>{return e[i].userId==userID}));
-    console.log(Details);
-  },[])
+
+  }, [])
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-       <Sidenav />
-      <div style={{ flex: 1, padding: '20px', overflowY: 'scroll' }}>
-        <h1 className="clientname">Client Personal Details</h1>
-        <div
-          className="personalDetails"
-          style={{ border: "1px solid black", margin: "1%" }}
-        >
-          {/* <h5 className="detailsclient">First Name       :          {clientDetails[0].firstName} </h5>
-          <h5 className="detailsclient">Last Name        :          {clientDetails[0].lastName}</h5>
-          <h5 className="detailsclient">Client ID        :          {clientDetails[0].clientID}</h5>
-          <h5 className="detailsclient">Email            :          {clientDetails[0].email}</h5>
-          <h5 className="detailsclient">Phone No.        :          {clientDetails[0].phone}</h5>
-          <h5 className="detailsclient">Company          :          {clientDetails[0].company}</h5>
-          <h5 className="detailsclient">Address          :          {clientDetails[0].address}</h5>
-          <h5 className="detailsclient">City             :          {clientDetails[0].city}</h5>
-          <h5 className="detailsclient">State            :          {clientDetails[0].state}</h5>
-          <h5 className="detailsclient">Total Investment : </h5> */}
-          <Button id="btnEdit" style={{ margin: "2%" }} variant="primary">
-            Edit profile
-          </Button>
-        </div>
-
+    <>
+      <Navbar2 />
+      <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2px", marginBottom: "6px", cursor: "pointer" }}>
+        <span className="signout" style={{ marginRight: "2%", fontWeight: "700", backgroundColor: "#212529", color: "white", padding: "1%", borderRadius: "14px" }}>
+          <center>
+            <span style={{ marginRight: "10%" }}>Sign Out</span>
+            <MDBIcon style={{ marginLeft: "1%" }} icon="power-off" size="1.5x" />
+          </center>
+        </span>
+      </div>
+      <section className='100vh' >
+        <MDBContainer className="py-5 h-100"  >
+          <MDBRow className="justify-content-center align-items-center h-100" >
+            <MDBCol lg="10" className="mb-4 mb-lg-0" style={{ border: "none" }}>
+              <MDBCard className="mb-3" style={{ borderRadius: '40px' }}>
+                <MDBRow className="g-0">
+                  <MDBCol md="4" className="gradient-custom text-center text-black"
+                  >
+                    <div style={{ marginTop: "20%" }}><MDBCardImage src={picprofile}
+                      alt="Avatar" style={{ width: '50%', backgroundColor: "#F58142" }} fluid />
+                      <MDBTypography tag="h5">{firstname} {lastname}</MDBTypography>
+                      <MDBCardText ><h2 style={{ marginBottom: "15%" }} >Client</h2></MDBCardText></div>
+                  </MDBCol>
+                  <MDBCol md="8" >
+                    <MDBCardBody className="p-4">
+                      <MDBTypography tag="h6"><h3>Client Id</h3> </MDBTypography>
+                      <MDBCardText className="text-muted">{adbisorId}</MDBCardText>
+                      <hr className="mt-0 mb-4" />
+                      <MDBRow className="pt-1">
+                        <MDBCol size="6" className="mb-3" style={{ backgroundColor: "#ffffff" }}>
+                          <MDBTypography tag="h6">Email</MDBTypography>
+                          <MDBCardText className="text-muted">{email}</MDBCardText>
+                        </MDBCol>
+                        <MDBCol size="6" className="mb-3">
+                          <MDBTypography tag="h6">Phone</MDBTypography>
+                          <MDBCardText className="text-muted">{phone}</MDBCardText>
+                        </MDBCol>
+                      </MDBRow>
+                      <MDBRow className="pt-1">
+                        <MDBCol size="6" className="mb-3">
+                          <MDBTypography tag="h6">Company</MDBTypography>
+                          <MDBCardText className="text-muted">{company}</MDBCardText>
+                        </MDBCol>
+                        <MDBCol size="6" className="mb-3">
+                          <MDBTypography tag="h6">Address</MDBTypography>
+                          <MDBCardText className="text-muted">{address}</MDBCardText>
+                        </MDBCol>
+                      </MDBRow>
+                      <MDBRow className="pt-1">
+                        <MDBCol size="6" className="mb-3">
+                          <MDBTypography tag="h6">City</MDBTypography>
+                          <MDBCardText className="text-muted">{city}</MDBCardText>
+                        </MDBCol>
+                        <MDBCol size="6" className="mb-3">
+                          <MDBTypography tag="h6">State</MDBTypography>
+                          <MDBCardText className="text-muted">{state}</MDBCardText>
+                        </MDBCol>
+                      </MDBRow>
+                    </MDBCardBody>
+                  </MDBCol>
+                </MDBRow>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </section>
         <h1 className="clientname">Client Investment Details</h1>
         <Table
+          className="rounded-table" 
           hover
           responsive
           id="table"
@@ -99,7 +161,8 @@ export const ClientDetails = () => {
             </tr>
           </tbody>
         </Table>
-      </div>
-    </div>
+        
+    </>
+
   );
 };

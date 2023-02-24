@@ -1,12 +1,13 @@
 import Button from 'react-bootstrap/Button'
-import { ClientInfo } from "./ClientInfo";
-import { ClientList } from './ClientList';
+import { ClientList } from "./ClientList";
 import { useEffect, useState } from "react";
 import "../styles/Dashboardadv.css";
+
+
 export function Dashboardadv() {
-  // const [clientsList, setClientsList] = useState([]);
-  // var ntokenn = "";
-  // useEffect(() => {
+  const [clientsList, setClientsList] = useState([]);
+  var ntokenn = "";
+  useEffect(() => {
     // setClientsList([]);
     // let token = localStorage.getItem("JWT-Token");
     // if(token==""){
@@ -35,25 +36,25 @@ export function Dashboardadv() {
     // } catch (error) {
     //   console.log("Error-> ", error);
     // }
-  // },[])
+  },[])
 
-  // const cli = clientsList.map((e,ind) =>{
-  //   return (
-  //     <tr key={ind}>
-  //       <td>
-  //       <label>{e.clientID}</label>
-  //       </td>
-  //       <td>
-  //       <Button href={"/clientDetails/" + e.userId}  className="btnClientName" variant="link" >{e.firstName}</Button>
-  //       </td>
-  //       <td>
-  //       <Button href={"/clientDetails/"+ e.userId} className="btnClientName" variant="link" >{e.lastName}</Button>
-  //       </td>
-  //       <td>{e.email}</td>
-  //       <td>{e.phone}</td>
-  //     </tr>
-  //   )
-  // })
+  const cli = clientsList.map((e,ind) =>{
+    return (
+      <tr key={ind}>
+        <td>
+        <label>{e.clientID}</label>
+        </td>
+        <td>
+        <Button href={"/clientDetails/" + e.userId}  className="btnClientName" variant="link" >{e.firstName}</Button>
+        </td>
+        <td>
+        <Button href={"/clientDetails/"+ e.userId} className="btnClientName" variant="link" >{e.lastName}</Button>
+        </td>
+        <td>{e.email}</td>
+        <td>{e.phone}</td>
+      </tr>
+    )
+  })
 
   // const handleDelete = async (item) => {
   //   const listItems = items.filter((it) => it.id !== item.id);
@@ -66,6 +67,9 @@ export function Dashboardadv() {
 
   return (
     <div className="App">
-      <ClientList/>
+      
+      <ClientList clientlist={cli}/>
+ 
+      
       </div>
       ); }

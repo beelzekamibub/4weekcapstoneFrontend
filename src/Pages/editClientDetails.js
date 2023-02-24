@@ -14,21 +14,21 @@ export const EditClientDetails = () => {
   const [items, setItems] = useState([]);
   const [client, setClient] = useState([]);
 
-  useEffect(() => {
-    const fetchAdviserClientList = async () => {
-      try {
-        const response = await fetch(API_AdviserClientList);
-        const tempList = await response.json();
-        setItems(tempList);
-        const tempList1 = tempList.filter((it) => it.id == params.id);
-        setClient(tempList1);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    (async () => await fetchAdviserClientList())();
-    // (async () => await func())();
-  }, []);
+  // useEffect(() => {
+  //   const fetchAdviserClientList = async () => {
+  //     try {
+  //       const response = await fetch(API_AdviserClientList);
+  //       const tempList = await response.json();
+  //       setItems(tempList);
+  //       const tempList1 = tempList.filter((it) => it.id == params.id);
+  //       setClient(tempList1);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   (async () => await fetchAdviserClientList())();
+  //   // (async () => await func())();
+  // }, []);
   const handleDelete = async (item) => {
     console.log("33");
     const listItems = items.filter((it) => it.id !== item.id);
