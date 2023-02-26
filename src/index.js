@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import  SignUpp  from './Pages/SignUpp';
+import SignUpp from './Pages/SignUpp';
 import { Logininvs } from './Pages/Logininvs';
 import { Loginadv } from './Pages/Loginadv';
 import { Dashboardadv } from './Pages/Dashboardadv';
@@ -19,70 +19,70 @@ import { AddClient } from './Pages/AddClient';
 import { EditClientDetails } from './Pages/editClientDetails';
 import { ClientDetails } from './Pages/ClientDetails';
 
-import {Abcd} from './Pages/abc'
+import { Abcd } from './Pages/abc'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
   {
     path: "SignUpp",
-    element: <SignUpp/>,
+    element: <SignUpp />,
   },
   {
     path: "logininvs",
-    element: <Logininvs/>,
+    element: <Logininvs />,
   },
   {
     path: "loginadv",
-    element: <Loginadv/>,
+    element: <Loginadv />,
   },
   {
     path: "dashboardadv",
-    element: <Dashboardadv/>,
+    element: <Dashboardadv />,
   },
   {
     path: "clientlist",
-    element: <ClientList/>,
+    element: <ClientList />,
   },
   {
     path: "forgetPassword",
-    element: <ForgetPassword/>,
+    element: <ForgetPassword />,
   },
   {
     path: "profileadv",
-    element: <AdviserProfile/>,
+    element: <AdviserProfile />,
   },
   {
     path: "addclient",
-    element: <AddClient/>,
+    element: <AddClient />,
   },
   {
     path: "investment/:id",
-    element: <Investment/>,
+    element: <Investment />,
   },
   {
     path: "editDetails/:EcliID",
-    element: <EditClientDetails/>,
+    element: <EditClientDetails />,
   },
   {
     path: "clientDetails/:EcliID",
-    element: <ClientDetails/>,
+    element: <ClientDetails />,
   },
   {
     path: "abc",
-    element: <Abcd/>,
+    element: <Abcd />,
   },
- 
+
 ]);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

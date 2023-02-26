@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Footer } from "../Components/footer";
-import { Navbarr } from "../Components/navbar";
+import Navbarr from "../Components/navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/Logininvs.css";

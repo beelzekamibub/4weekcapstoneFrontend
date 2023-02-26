@@ -1,6 +1,6 @@
 import React from "react";
 import { Footer } from "../Components/footer";
-import { Navbarr } from "../Components/navbar";
+import Navbarr from "../Components/navbar";
 import MyTypewriterComponentt from "../Components/MyTypewriterComponent.js";
 import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
 import "../styles/Home.css";

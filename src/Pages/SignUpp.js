@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import { Footer } from "../Components/footer";
-import { Navbarr } from "../Components/navbar";
+import Navbarr  from "../Components/navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
@@ -57,7 +57,7 @@ function SignUpp() {
         password: password,
         confirmPassword: confirmPassword
       };
-      alert(JSON.stringify(values));
+
       try {
         console.log("made a fetch call");
         fetch("https://localhost:7061/api/User/Registration", {

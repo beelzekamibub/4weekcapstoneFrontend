@@ -6,7 +6,7 @@ import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import picprofile from "../Images/picprofile.png"
 import "../styles/advprofile.css";
-import { Navbar2 } from "../Components/navbar2";
+import Navbar2 from "../Components/navbar2";
 
 export const ClientDetails = () => {
   let { EcliID } = useParams();

@@ -5,7 +5,7 @@ import { Sidenav } from "../Components/sidenav";
 import { useState,useEffect } from "react";
 import picprofile from "../Images/picprofile.png"
 import "../styles/advprofile.css";
-import { Navbar2 } from "../Components/navbar2";
+import Navbar2  from "../Components/navbar2";
 
 export const AdviserProfile = () => {
     const [firstname,setfirstName]=useState("");
@@ -64,7 +64,7 @@ export const AdviserProfile = () => {
 
   return (
 <>
-<Navbar2/>
+<Navbar2 />
       <div  style={{display:"flex",justifyContent:"flex-end",marginTop:"2px",marginBottom:"6px",cursor:"pointer"}}>
       <span className="signout" style={{marginRight:"2%",fontWeight:"700",backgroundColor:"#212529",color:"white",padding:"1%",borderRadius:"14px"}}>
       <center>

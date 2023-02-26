@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Footer } from "../Components/footer";
-import { Navbarr } from "../Components/navbar";
+import Navbarr from "../Components/navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/Logininvs.css";
@@ -32,6 +32,9 @@ export const Loginadv = () => {
           if (res.status == 200) {
             window.location = '/clientlist';
             return res.text();
+          }
+          else{
+            window.location ="/loginadv"
           }
           return res.text();
         })
@@ -78,8 +81,6 @@ export const Loginadv = () => {
             <center><Button style={{ fontFamily: "Arial", borderRadius: "14px", width: "50%", borderTop: "0px" }} onClick={SignIn} variant="primary" type="submit">
               Sign In
             </Button></center>
-
-
 
           </Form>
         </div>

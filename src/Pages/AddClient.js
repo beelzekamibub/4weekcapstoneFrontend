@@ -8,19 +8,19 @@ import { Footer } from "../Components/footer";
 import { useEffect } from "react";
 import { MDBIcon } from 'mdb-react-ui-kit';
 import "../styles/addclient.css";
-import { Navbar2 } from "../Components/navbar2";
+import Navbar2  from "../Components/navbar2";
 
 export const AddClient = () => {
 
 
-  const [firstname,setfirstName]=useState("");
-  const [lastname,setlastname]=useState("");
-  const [email,setemail]=useState("");
-  const [phone,setphone]=useState("");
-  const [company,setcompany]=useState("");
-  const [city,setcity]=useState("");
-  const [state,setstate]=useState("");
-  const [address,setaddress]=useState("");
+  // const [firstname,setfirstName]=useState("");
+  // const [lastname,setlastname]=useState("");
+  // const [email,setemail]=useState("");
+  // const [phone,setphone]=useState("");
+  // const [company,setcompany]=useState("");
+  // const [city,setcity]=useState("");
+  // const [state,setstate]=useState("");
+  // const [address,setaddress]=useState("");
   const [adbisorId,setadbisorId]=useState("");
 
 
@@ -60,14 +60,14 @@ export const AddClient = () => {
       })
         .then(res => res.json())
         .then((data) => {
-          setaddress(data.address);
-          setcity(data.city);
-          setfirstName(data.firstName);
-          setlastname(data.lastName);
-          setemail(data.email);
-          setphone(data.phone);
-          setcompany(data.company);
-          setstate(data.state);
+          // setaddress(data.address);
+          // setcity(data.city);
+          // setfirstName(data.firstName);
+          // setlastname(data.lastName);
+          // setemail(data.email);
+          // setphone(data.phone);
+          // setcompany(data.company);
+          // setstate(data.state);
           setadbisorId(data.advisorID);
         })
     } catch (error) {
@@ -77,7 +77,7 @@ export const AddClient = () => {
 
 
   const Register = (e) => {
-    alert(adbisorId);
+
     e.preventDefault();
     let values = {
       firstName: firstName,
