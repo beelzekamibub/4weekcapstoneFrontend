@@ -18,7 +18,7 @@ import { AdviserProfile } from './Pages/AdvisorProfile';
 import { AddClient } from './Pages/AddClient';
 import { EditClientDetails } from './Pages/editClientDetails';
 import { ClientDetails } from './Pages/ClientDetails';
-
+import ResetPassword from './Pages/ResetPassword';
 import { Abcd } from './Pages/abc'
 
 
@@ -75,6 +75,10 @@ const router = createBrowserRouter([
     path: "abc",
     element: <Abcd />,
   },
+  {
+    path:"ResetPassword",
+    element: <ResetPassword />,
+  }
 
 ]);
 

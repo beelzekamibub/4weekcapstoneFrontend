@@ -43,6 +43,10 @@ export const ClientList = () => {
     }
   }, [])
 
+  const editdetails=(c)=>{
+    window.location = '/editDetails/'+c;
+  }
+
   const deleteclient=(c) => {
     
     let token = localStorage.getItem("JWT-Token");
@@ -88,7 +92,7 @@ export const ClientList = () => {
         <td style={{alignItems:"left"}}>{e.phone}</td>
         <td style={{alignItems:"left"}}>
           <div>
-            <EditIcon></EditIcon>
+            <EditIcon onClick={()=>editdetails(e.clientID)}></EditIcon>
             &nbsp;
             &nbsp;
             &nbsp;
@@ -105,12 +109,6 @@ export const ClientList = () => {
     <>
       <Navbar2 />
       <div className='container' style={{ marginTop: "7%" }} >
-
-
-        {/* <div style={{ border: "3px solid black", width: "fit-content", padding: "2%", borderRadius: "20px" }}>
-          <h3>Welcome {firstname} {lastname}</h3>
-          <p style={{ color: "#212529" }}>It's good to see you again</p>
-        </div>*/}
         <br /> 
         <Table style={{ marginBottom: "3%" }} className="rounded-table" responsive hover id="table" >
           <thead>
