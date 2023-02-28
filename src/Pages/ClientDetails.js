@@ -12,6 +12,7 @@ import Navbar2 from "../Components/navbar2";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const ClientDetails = () => {
+  
   let { EcliID } = useParams();
   const [Total, setTotal] = useState(0.0);
   const [firstname, setfirstName] = useState("");
@@ -26,9 +27,13 @@ export const ClientDetails = () => {
   const [listofinvestment, setlistofinvestment] = useState([]);
   const [cont, setCont] = useState(false);
   const [renderlist, setrenderlist] = useState(false);
-
-
-
+  const [investmentname,setInvestmentname] = useState("");
+  const [investmenttype,setInvestmenttype] = useState("");
+  const [strategyName,setStrategyname] = useState("");
+  const [accountid,setAccountid] = useState("");
+  const [modelAPLid,setModelAPLid] = useState("");
+  const [investmentAmount,setInvestmentAmount] = useState(0);
+  const [activestatus,setActivestatus] = useState("");
 
   const func = () => {
     if (cont === false) {
@@ -37,12 +42,52 @@ export const ClientDetails = () => {
   }
 
   const funcSave = () => {
+    let token = localStorage.getItem("JWT-Token");
+    if (token == "") {
+      alert("not authorized");
+      window.location = '/loginadv'
+    }
+    token = "Bearer " + token.replaceAll('"', '');
+    let values={
+      clientID: EcliID,
+      investmentName: investmentname,
+      active: activestatus,
+      investmentTypeName: investmenttype,
+      strategyid: 0,
+      strategyName: strategyName,
+      accountID: accountid,
+      modelAPLID: modelAPLid,
+      investmentAmount: investmentAmount
+    }
+
+    try {
+      console.log("made a fetch call");
+      fetch("https://localhost:7061/api/Investment/Create", {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json',
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE",
+          "Authorization": token,
+          "Access-Control-Max-Age": 86400
+        },
+        body: JSON.stringify(values),
+      }
+      ).then((res) => {
+        if (res.status === 200) { alert("investment added"); window.location = "/clientDetails/" + EcliID }
+        if (res.status !== 200) { alert("something went wrong"); window.location = "/clientDetails/" + EcliID }
+      })
+        .then((data) => {
+          if (data === "Undefined") {
+            alert("some error occured");
+          }
+          console.log(data);
+        });
+    } catch (error) {
+      console.log("Error-> ", error);
+    }
     setCont(false)
   }
-
-
-
-
 
   const deleteinvestment = (id) => {
     let token = localStorage.getItem("JWT-Token");
@@ -51,9 +96,7 @@ export const ClientDetails = () => {
       window.location = '/loginadv'
     }
     token = "Bearer " + token.replaceAll('"', '');
-
     try {
-
       fetch(`https://localhost:7061/api/Investment/delete?request=${id}`, {
         method: "DELETE",
         headers: {
@@ -73,7 +116,6 @@ export const ClientDetails = () => {
       console.log("Error-> ", error);
     }
   }
-
 
   useEffect(() => {
     let token = localStorage.getItem("JWT-Token");
@@ -308,35 +350,33 @@ export const ClientDetails = () => {
           <Form className="formAddTrans">
             <Row>
               <Form.Group as={Col} sm className="mb-3" controlId="formBasicEmail">
-                <Form.Control type="text" placeholder="Enter investment name" />
+                <Form.Control value={investmentname} onChange={(e) => setInvestmentname(e.target.value)} type="text" placeholder="Enter investment name" />
               </Form.Group>
 
               <Form.Group as={Col} sm style={{ paddingBottom: "15px" }}>
-                <Form.Select aria-label="Default select example">
+                <Form.Select value={investmenttype} onChange={(e) => setInvestmenttype(e.target.value)} aria-label="Default select example">
                   <option>Investment Type</option>
-                  <option value="1">Type-1</option>
-                  <option value="2">Type-2</option>
-                  <option value="3">Type-3</option>
+                  <option value="Type-1">Type-1</option>
+                  <option value="Type-2">Type-2</option>
+                  <option value="Type-3">Type-3</option>
                 </Form.Select>
               </Form.Group>
               <Form.Group as={Col} sm className="mb-3">
-                <Form.Control type="text" placeholder="Strategy Name" />
+                <Form.Control value={strategyName} onChange={(e) => setStrategyname(e.target.value)} type="text" placeholder="Strategy Name" />
               </Form.Group>
               <Form.Group as={Col} sm className="mb-3">
-                <Form.Control type="text" placeholder="Account ID" />
+                <Form.Control value={accountid} onChange={(e) => setAccountid(e.target.value)} type="text" placeholder="Account ID" />
               </Form.Group>
-
-
             </Row>
             <Row>
               <Form.Group as={Col} sm className="mb-3">
-                <Form.Control type="text" placeholder="Modle APLID" />
+                <Form.Control value={modelAPLid} onChange={(e) => setModelAPLid(e.target.value)} type="text" placeholder="Modle APLID" />
               </Form.Group>
               <Form.Group as={Col} sm className="mb-3">
-                <Form.Control type="number" placeholder="Investment Amount" />
+                <Form.Control value={investmentAmount} onChange={(e) => setInvestmentAmount(e.target.value)} type="number" placeholder="Investment Amount" />
               </Form.Group>
               <Form.Group as={Col} sm className="mb-3">
-                <Form.Select aria-label="Default select example">
+                <Form.Select value={activestatus} onChange={(e) => setActivestatus(e.target.value)} aria-label="Default select example">
                   <option>active</option>
                   <option value="1">0</option>
                   <option value="2">1</option>
