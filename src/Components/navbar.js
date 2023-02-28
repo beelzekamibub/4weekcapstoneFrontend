@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logosmall from '../Images/logosmall.png';
 import navlogo from '../Images/navlogo.png';
+import "../styles/navbar.css";
 
 
 function Navbarr() {
@@ -21,8 +22,8 @@ function Navbarr() {
             <Nav className="me-auto">
             </Nav>
             <Nav>
-              <Nav.Link style={{ border: "1px solid #FFFFFF", marginRight: "20px", borderRadius: "10px", padding: "10%" }} href="/SignUpp">   SignUp </Nav.Link>
-              <Nav.Link style={{ border: "1px solid #FFFFFF", borderRadius: "10px", padding: "10%" }} href="/loginadv">   SignIn </Nav.Link>
+              <Nav.Link className="up"  href="/SignUpp">   SignUp </Nav.Link>
+              <Nav.Link className="in"  href="/loginadv">   SignIn </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
