@@ -87,13 +87,17 @@ function Navbar2() {
                 </div>
               </Nav.Link>
             </Nav>
+            
             <Nav>
+            <div className="hstack gap-5">
               <Nav.Link href="/profileadv">
                 <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2px", marginBottom: "6px", cursor: "pointer", marginRight: "25px" }}>
                   <span className="signout" style={{ marginRight: "2%", fontWeight: "700", backgroundColor: "#212529", color: "white", padding: "4%", borderRadius: "14px" }}>
                     <center>
-                        {firstname}
+                    <div className="hstack gap-3">
+                      {firstname}
                         <MDBIcon style={{ marginRight: "5%" }} icon="user" size="1.5x" />
+                    </div>                        
                     </center>
                   </span>
                 </div>
@@ -107,6 +111,7 @@ function Navbar2() {
                   </span>
                 </div>
               </Nav.Link>
+              </div>
             </Nav>
           </Navbar.Collapse>
         </Container>

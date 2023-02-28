@@ -35,6 +35,7 @@ export const ClientList = () => {
       })
         .then(res => res.json())
         .then((data) => {
+
           setClientsList(data);
 
         })
@@ -56,7 +57,7 @@ export const ClientList = () => {
       window.location = '/loginadv'
     }
     token = "Bearer " + token.replaceAll('"', '');
-    alert(`https://localhost:7061/api/User/Delete-User?id=${c}`);
+
     try {
       console.log("made a get call");
       fetch(`https://localhost:7061/api/User/Delete-User?id=${c}`, {

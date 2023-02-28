@@ -22,6 +22,10 @@
   border-radius: 20px;
   box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.2);
 }
+#btnAddTransaction {
+  margin-left: 15px;
+  background-color: #212529;
+}
 
 .rounded-table td {
   border-bottom: 1px solid #dee2e6;
@@ -58,6 +62,31 @@
 .rounded-table .table-dark thead th {
   border-color: #dee2e6;
 }
+
+.contAddTrans {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formAddTrans {
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+#btnSave {
+  margin-top: 2%;
+  background-color: #212529;
+  border: #212529;
+  width: fit-content;
+  }
+#btnAddInves{
+  background-color: #212529;
+  border: #212529;
+  margin-left: 30px;
+}
+
 /* Styles for small screens */
 @media only screen and (max-width: 502px) {
   /* CSS styles here */
