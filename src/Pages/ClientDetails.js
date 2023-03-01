@@ -12,7 +12,7 @@ import Navbar2 from "../Components/navbar2";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const ClientDetails = () => {
-  
+
   let { EcliID } = useParams();
   const [Total, setTotal] = useState(0.0);
   const [firstname, setfirstName] = useState("");
@@ -48,6 +48,7 @@ export const ClientDetails = () => {
       window.location = '/loginadv'
     }
     token = "Bearer " + token.replaceAll('"', '');
+    
     let values={
       clientID: EcliID,
       investmentName: investmentname,
@@ -75,7 +76,7 @@ export const ClientDetails = () => {
       }
       ).then((res) => {
         if (res.status === 200) { alert("investment added"); window.location = "/clientDetails/" + EcliID }
-        if (res.status !== 200) { alert("something went wrong"); window.location = "/clientDetails/" + EcliID }
+        if (res.status !== 200) { alert(res.status); window.location = "/clientDetails/" + EcliID }
       })
         .then((data) => {
           if (data === "Undefined") {
@@ -126,7 +127,7 @@ export const ClientDetails = () => {
     token = "Bearer " + token.replaceAll('"', '');
 
     try {
-      fetch(`https://localhost:7061/api/User/client-Info?id=${EcliID}`, {
+      fetch(`https://localhost:7061/api/User/clientInfo?id=${EcliID}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json',
@@ -235,14 +236,6 @@ export const ClientDetails = () => {
   return (
     <>
       <Navbar2 />
-      <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2px", marginBottom: "6px", cursor: "pointer" }}>
-        <span className="signout" style={{ marginRight: "2%", fontWeight: "700", backgroundColor: "#212529", color: "white", padding: "1%", borderRadius: "14px" }}>
-          <center>
-            <span style={{ marginRight: "10%" }}>Sign Out</span>
-            <MDBIcon style={{ marginLeft: "1%" }} icon="power-off" size="1.5x" />
-          </center>
-        </span>
-      </div>
       <section className='100vh' >
         <MDBContainer className="py-5 h-100"  >
           <MDBRow className="justify-content-center align-items-center h-100" >

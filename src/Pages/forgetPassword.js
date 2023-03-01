@@ -14,7 +14,7 @@ export const ForgetPassword = () => {
       "email": email,
     };
     try {
-      fetch("https://localhost:7061/api/User/Advisor-Forgot-password-without-login", {
+      fetch("https://localhost:7061/api/User/AdvisorForgot", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

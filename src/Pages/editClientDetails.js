@@ -66,7 +66,7 @@ export const EditClientDetails = () => {
 
     try {
 
-      fetch(`https://localhost:7061/api/User/Update-client-personal-info?ClientId=${EcliID}`, {
+      fetch(`https://localhost:7061/api/User/Update=${EcliID}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -105,7 +105,7 @@ export const EditClientDetails = () => {
 
     try {
       console.log("made a get call");
-      fetch(`https://localhost:7061/api/User/client-Info?id=${EcliID}`, {
+      fetch(`https://localhost:7061/api/User/clientInfo?id=${EcliID}`, {
         method: "GET",
         headers: {
           'Content-type': 'application/json',

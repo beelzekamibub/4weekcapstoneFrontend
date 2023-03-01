@@ -29,7 +29,7 @@ export const AdviserProfile = () => {
     
     try {
       console.log("made a get call");
-      fetch("https://localhost:7061/api/User/Advisor-Info", {
+      fetch("https://localhost:7061/api/User/AdvisorInfo", {
         method: "GET",
         headers: {
           'Content-type': 'application/json',
@@ -65,14 +65,6 @@ export const AdviserProfile = () => {
   return (
 <>
 <Navbar2 />
-      <div  style={{display:"flex",justifyContent:"flex-end",marginTop:"2px",marginBottom:"6px",cursor:"pointer"}}>
-      <span className="signout" style={{marginRight:"2%",fontWeight:"700",backgroundColor:"#212529",color:"white",padding:"1%",borderRadius:"14px"}}>
-      <center>
-      <span style={{marginRight:"10%"}}>Sign Out</span>
-      <MDBIcon style={{marginLeft:"1%"}}icon="power-off" size="1.5x"/>
-      </center>
-      </span>
-      </div>
     <section className='100vh' >
       <MDBContainer className="py-5 h-100"  >
         <MDBRow className="justify-content-center align-items-center h-100" >

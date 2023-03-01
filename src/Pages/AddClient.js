@@ -48,7 +48,7 @@ export const AddClient = () => {
     setBearertoken(ntoken);
     try {
       console.log("made a get call");
-      fetch("https://localhost:7061/api/User/Advisor-Info", {
+      fetch("https://localhost:7061/api/User/AdvisorInfo", {
         method: "GET",
         headers: {
           'Content-type': 'application/json',

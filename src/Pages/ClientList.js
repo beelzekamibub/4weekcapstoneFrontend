@@ -23,7 +23,7 @@ export const ClientList = () => {
 
     try {
       console.log("made a get call");
-      fetch("https://localhost:7061/api/User/Get-All-Clients-for-an-advisor", {
+      fetch("https://localhost:7061/api/User/GetAllClients", {
         method: "GET",
         headers: {
           'Content-type': 'application/json',
@@ -60,7 +60,7 @@ export const ClientList = () => {
 
     try {
       console.log("made a get call");
-      fetch(`https://localhost:7061/api/User/Delete-User?id=${c}`, {
+      fetch(`https://localhost:7061/api/User/Delete?id=${c}`, {
         method: "DELETE",
         headers: {
           'Content-type': 'application/json',

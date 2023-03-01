@@ -20,7 +20,7 @@ const ResetPassword = () => {
         };
 
         try {
-            fetch("https://localhost:7061/api/User/Advisor-Reset-password-without-login", {
+            fetch("https://localhost:7061/api/User/AdvisorReset", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",

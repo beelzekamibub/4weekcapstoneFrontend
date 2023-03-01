@@ -41,17 +41,8 @@ export const Sidenav = () => {
             <NavLink exact to="/clientlist" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="table">Client List</CDBSidebarMenuItem>
             </NavLink>
-            {/* <NavLink exact to="/addclient" activeClassName="activeClicked">
-            <CDBSidebarMenuItem icon="plus">Add New Client</CDBSidebarMenuItem>
-            </NavLink> */}
-            
           </CDBSidebarMenu>
         </CDBSidebarContent>
-        {/* <CDBSidebarFooter style={{ textAlign: "center" }}>
-        <button onClick={signout} style={{ textAlign: "center", backgroundColor:"#ff381a"}}> 
-          <CDBSidebarMenuItem icon="power-off"></CDBSidebarMenuItem>
-        </button>
-        </CDBSidebarFooter> */}
       </CDBSidebar>
     </div>
   );

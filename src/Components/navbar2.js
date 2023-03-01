@@ -3,10 +3,25 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { MDBIcon } from "mdb-react-ui-kit";
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBBtn,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBCollapse,
+} from 'mdb-react-ui-kit';
 import navlogo from '../Images/navlogo.png';
 import logosmall from '../Images/logosmall.png';
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 function Navbar2() {
   const [firstname, setfirstName] = useState("");
@@ -18,6 +33,7 @@ function Navbar2() {
   const [state, setstate] = useState("");
   const [address, setaddress] = useState("");
   const [adbisorId, setadbisorId] = useState("");
+  const [showBasic, setShowBasic] = useState(false);
   useEffect(() => {
 
     let token = localStorage.getItem("JWT-Token");
@@ -30,7 +46,7 @@ function Navbar2() {
 
     try {
       console.log("made a get call");
-      fetch("https://localhost:7061/api/User/Advisor-Info", {
+      fetch("https://localhost:7061/api/User/AdvisorInfo", {
         method: "GET",
         headers: {
           'Content-type': 'application/json',
@@ -66,57 +82,53 @@ function Navbar2() {
   }
 
   return (
-    <>
-      <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark" >
-        <Container>
-          <Navbar.Brand style={{ marginRight: "20px" }} href="/clientlist">
-            <img style={{height: "40px",marginRight: "20px"}}
+    <MDBNavbar expand='lg' light bgColor='dark'>
+      <MDBContainer fluid>
+        <MDBNavbarBrand href='/'>
+          <img style={{ height: "40px", marginLeft: "" }}
             src={navlogo} />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link style={{ padding: "10%" }} href="/clientlist"> 
-              <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2px", marginBottom: "6px", cursor: "pointer", marginRight: "25px" }}>
-                  <span className="signout" style={{ marginRight: "2%", fontWeight: "700", backgroundColor: "#212529", color: "white", padding: "4%", borderRadius: "14px" }}>
-                    <center>
-                        
-                        <MDBIcon style={{ marginRight: "5%" }} icon="list" size="1.5x" />
-                    </center>
-                  </span>
-                </div>
-              </Nav.Link>
-            </Nav>
-            
-            <Nav>
-            <div className="hstack gap-5">
-              <Nav.Link href="/profileadv">
-                <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "2px", marginBottom: "6px", cursor: "pointer", marginRight: "25px" }}>
-                  <span className="signout" style={{ marginRight: "2%", fontWeight: "700", backgroundColor: "#212529", color: "white", padding: "4%", borderRadius: "14px" }}>
-                    <center>
-                    <div className="hstack gap-3">
-                      {firstname}
-                        <MDBIcon style={{ marginRight: "5%" }} icon="user" size="1.5x" />
-                    </div>                        
-                    </center>
-                  </span>
-                </div>
-              </Nav.Link>
-              <Nav.Link href="/">
-                <div onClick={signout} style={{ display: "flex", justifyContent: "flex-end", marginTop: "2px", marginBottom: "6px", cursor: "pointer", marginRight: "2px" }}>
-                  <span className="signout" style={{ fontWeight: "700", backgroundColor: "#212529", color: "white", padding: "1%", borderRadius: "14px" }}>
-                    <center>
-                      <MDBIcon style={{ marginLeft: "14%" }} icon="power-off" size="1.5x" />
-                    </center>
-                  </span>
-                </div>
-              </Nav.Link>
-              </div>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </>
+        </MDBNavbarBrand>
+
+        <MDBNavbarToggler className='text-white'
+          aria-controls='navbarSupportedContent'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+          onClick={() => setShowBasic(!showBasic)}
+        >
+          <MDBIcon icon='bars' fas />
+        </MDBNavbarToggler>
+
+        <MDBCollapse navbar show={showBasic}>
+          <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
+            <MDBNavbarItem >
+              <MDBNavbarLink active aria-current='page' className='text-white' href='/clientlist'>
+                Clients
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+
+
+          </MDBNavbarNav>
+
+
+        </MDBCollapse>
+
+        <MDBCollapse navbar show={showBasic}>
+          <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
+            <MDBNavbarItem>
+              <MDBNavbarLink className='text-white' active aria-current='page' href='/profileadv'>
+                {lastname}, {firstname}
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <div onClick={signout}>
+              <MDBNavbarItem>
+                <MDBNavbarLink className='text-white' href='/'><MDBIcon style={{ marginLeft: "1%" }} icon="power-off" size="1.5x" /></MDBNavbarLink>
+              </MDBNavbarItem>
+            </div>
+          </MDBNavbarNav>
+        </MDBCollapse>
+
+      </MDBContainer>
+    </MDBNavbar>
   );
 }
 
